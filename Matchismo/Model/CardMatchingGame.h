@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Card.h"
 #import "Deck.h"
+#import "Game.h"
 
 enum {
 	twoCardMatching     = 0,
@@ -17,16 +18,11 @@ enum {
 };
 typedef NSInteger cardGameMatchType;
 
-@interface CardMatchingGame : NSObject
+@interface CardMatchingGame : Game
 
 //designated initializer
-- (id) initWithCardCount:(NSUInteger)count usindDeck:(Deck*)deck;
-- (void)flipCardAtIndex:(NSUInteger)index;
-- (Card *)cardAtIndex:(NSUInteger)index;
 
-@property (readonly, nonatomic)int score;
 @property (nonatomic)cardGameMatchType cardMatchType;
-@property (strong, nonatomic)NSString *lastMoveResults;
 
 
 @end

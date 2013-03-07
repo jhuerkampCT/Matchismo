@@ -15,7 +15,6 @@
 @end
 
 @implementation CardMatchingGame
-@synthesize lastMoveResults = _lastMoveResults;
 
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
@@ -189,31 +188,15 @@
     return _cards;
 }
 
-- (NSString*)lastMoveResults
-{
-    if (!_lastMoveResults)_lastMoveResults = [[NSString alloc]init];
-    return _lastMoveResults;
-}
 
 - (id) initWithCardCount:(NSUInteger)count usindDeck:(Deck *)deck
 {
-    self = [super init];
+    self = [super initWithCardCount:count usindDeck:deck];
     
     if (self)
     {
         //default card match type to 2 cards
         self.cardMatchType = 0;
-        
-        for (int i=0; i<count; i++) {
-            Card *card = [deck drawRandomCard];
-            if (card)
-                self.cards[i] = card;
-            else
-            {
-                self = nil;
-                break;
-            }
-        }
     }
     return self;
 }
