@@ -23,48 +23,7 @@
 - (void) flipCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
-//    if (card && !card.isUnplayable)
-//    {
-//        if (!card.isFaceUp)
-//        {
-//            self.lastMoveResults = [NSString stringWithFormat:@"Flipped up %@", card.contents];
-//            
-//            for (Card *secondCard in self.cards)
-//            {
-//                if (secondCard.isFaceUp && !secondCard.isUnplayable)
-//                {
-//                    int matchScore = [card match:@[secondCard]];
-//                    
-//                    if (matchScore)
-//                    {
-//                        card.unplayable = YES;
-//                        secondCard.unplayable = YES;
-//                        
-//                        self.score += matchScore * MATCH_BONUS;
-//                        
-//                        self.lastMoveResults = [NSString stringWithFormat:@"Matched %@ and %@ for %d points", card.contents, secondCard.contents, matchScore * MATCH_BONUS];
-//                    }
-//                    else
-//                    {
-//                        card.faceUp = NO;
-//                        self.score -= MISMATCH_PENALTY;
-//                        self.lastMoveResults = [NSString stringWithFormat:@"%@ and %@ do not match.  %d point penalty", card.contents, secondCard.contents, MISMATCH_PENALTY];
-//                    }
-//                    break;
-//                }
-//            }   
-//            self.score -= FLIP_COST;
-//        }
-//        //Card is up and being flipped back over
-//        else
-//        {
-//            self.lastMoveResults = [NSString stringWithFormat:@"Flipped down %@", card.contents];
-//        }
-//        card.faceUp = !card.isFaceUp;
-//    }
-    
-    
-    
+
     if (card && !card.isUnplayable)
     {
         if (!card.isFaceUp)
@@ -90,7 +49,7 @@
                         }
                         else
                         {
-                            //card.faceUp = NO;
+                            card.faceUp = YES;
                             secondCard.faceUp = NO;
                             self.score -= MISMATCH_PENALTY;
                             self.lastMoveResults = [NSString stringWithFormat:@"%@ and %@ do not match.  %d point penalty", card.contents, secondCard.contents, MISMATCH_PENALTY];
@@ -144,7 +103,7 @@
                                         }
                                         else
                                         {
-                                            //card.faceUp = NO;
+                                            card.faceUp = NO;
                                             secondCard.unplayable = YES;
                                             thirdCard.unplayable = YES;
                                             
@@ -154,7 +113,7 @@
                                     }
                                     else
                                     {
-                                        //card.faceUp = NO;
+                                        card.faceUp = YES;
                                         secondCard.faceUp = NO;
                                         thirdCard.faceUp = NO;
                                         
@@ -175,11 +134,6 @@
         }
         card.faceUp = !card.isFaceUp;
     }
-}
-
-- (Card*) cardAtIndex:(NSUInteger)index
-{
-    return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
 - (NSMutableArray*)cards

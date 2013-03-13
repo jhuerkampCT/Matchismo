@@ -75,6 +75,7 @@
     _flipCount = flipCount;
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", flipCount];
 }
+
 - (IBAction)flipCard:(UIButton *)sender
 {
     [self.cardMatchSwitch setEnabled:NO];

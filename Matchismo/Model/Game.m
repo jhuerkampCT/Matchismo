@@ -85,7 +85,7 @@
                         }
                         else
                         {
-                            card.faceUp = NO;
+                            card.faceUp = YES;
                             self.score -= MISMATCH_PENALTY;
                             self.lastMoveResults = [NSString stringWithFormat:@"%@ and %@ do not match.  %d point penalty", card.contents, secondCard.contents, MISMATCH_PENALTY];
                         }

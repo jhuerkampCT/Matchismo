@@ -60,6 +60,7 @@
     }
     return score;
 }
+
 - (NSString*) contents
 {
     return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
